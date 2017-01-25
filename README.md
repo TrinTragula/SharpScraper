@@ -10,7 +10,7 @@ In order to get it to work you need to have a MongoDB database up and running. T
 ## Why is it so slow?
 It waits a lot between requests in order not to get banned by pastebin very strict policy aginst abuse.
 Don't reduce them. If you do it, you'll probably have your ip address blocked.
-[Here is Pastebin statement about scraping their website](http://pastebin.com/scraping)
+[Here is a statement from Pastebin about scraping their website](http://pastebin.com/scraping)
 
 ## Who made it?
 I made it, Daniele aka TrinTragula. It's completly free to use, share and modify. Just a random project I made to help me learn C# and MongoDB.
