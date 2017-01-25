@@ -1,0 +1,7 @@
+'email': [A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}
+'lulz': (lulzsec|antisec)
+'cisco_hash': enable\s+secret
+'cisco_pass': enable\s+password
+'google_api': \W(AIza.{35})
+'pgp_private': BEGIN PGP PRIVATE
+'ssh_private': BEGIN RSA PRIVATE
