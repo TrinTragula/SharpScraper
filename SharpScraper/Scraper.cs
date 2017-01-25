@@ -96,6 +96,7 @@ namespace SharpScraper
 
         }
 
+        // Funzione per confrontare una stringa con un'espressione regolare
         public bool isKeywordPresent(string text, string regex)
         {
             Regex r = new Regex(regex);
@@ -103,20 +104,23 @@ namespace SharpScraper
             return isKeywordHere;
         }
 
+        // ROutine per cominciare il monitoraggio
         public void startScraping(string regex, Database mongoDB)
         {
             decimal i = 0;
             string paste;
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Cerco secondo la regex {0}...", regex);
             Console.ResetColor();
+            // loop senza fine, finché l'utent non preme ctrl+c
             for (;;)
             {
                 Console.WriteLine("");
                 Console.BackgroundColor = ConsoleColor.DarkBlue;
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("Richiesta numero {0}... (con 30 secondi di timeout per evitare un ban)", i + 1);
+                Console.WriteLine("Richiesta numero {0}... (timeout di 30s per evitare un ban, ctrl+c per uscire)", i + 1);
                 Console.ResetColor();
+                // Tra ogni batch di richieste, aspetta un po' di più
                 Thread.Sleep(30000);
                 List<string> pasteList = getRecentPaste();
                 Console.WriteLine("{0} paste ottenuti!", pasteList.Count());          
@@ -130,17 +134,18 @@ namespace SharpScraper
                     if (isKeywordPresent(paste, regex))
                     {
                         Console.WriteLine("");
-                        // Salve il paste nella cartella, con nome l'url e come nome cartella la data
                         string actualUrl = pasteBinRawUrl + pasteList[j];
                         Console.BackgroundColor = ConsoleColor.Green;
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.WriteLine("### Trovata una corrispodnenza! Url: {0} ###", actualUrl);
                         Console.ResetColor();
+                        // Inserisci nel database il paste che hai scoeprto e corrisponde ai nsotir criteri di ricerca
                         mongoDB.insertPaste(paste, actualUrl);
                         Console.WriteLine("");
                     }
                 }
             }
+            // Incremento per ricordare quante richieste ho fatto
             i++;
         }
 

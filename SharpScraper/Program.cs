@@ -31,7 +31,7 @@ namespace SharpScraper
 @" ############################################################################ 
  #             SharpScraper - A pastebin scraper written in c#              # 
  #                      Mady by Daniele Scarinci in 2017.                   # 
- #                           Open source and all.                           # 
+ #                           Open source and free.                          # 
  ############################################################################ 
 
 ";
