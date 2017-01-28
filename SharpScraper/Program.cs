@@ -31,8 +31,8 @@ namespace SharpScraper
         {
             string banner =
 @" ############################################################################ 
- #             SharpScraper - A pastebin scraper written in c#              # 
- #                      Mady by Daniele Scarinci in 2017.                   # 
+ #             SharpScraper - A pastebin scraper written in C#              # 
+ #                        Mady by TrinTragula in 2017.                      # 
  #                           Open source and free.                          # 
  ############################################################################ 
 
