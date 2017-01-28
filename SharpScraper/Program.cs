@@ -12,6 +12,8 @@ using System.Threading;
 using MongoDB.Driver;
 using MongoDB.Bson;
 
+// to do: threading and premere q per uscire
+
 namespace SharpScraper
 {
     class Program

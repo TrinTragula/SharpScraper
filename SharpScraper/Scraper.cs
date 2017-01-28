@@ -129,7 +129,7 @@ namespace SharpScraper
                     Thread.Sleep(timeOut); //per non generare troppo traffico, aspetta tra una richiesta e l'altra
                     paste = getPasteText(pasteList[j]);
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.Write("\rCerco paste {0} di {1}   ", j, pasteList.Count());
+                    Console.Write("\rCerco paste {0} di {1}   ", j+1, pasteList.Count());
                     Console.ResetColor();
                     if (isKeywordPresent(paste, regex))
                     {
@@ -137,16 +137,17 @@ namespace SharpScraper
                         string actualUrl = pasteBinRawUrl + pasteList[j];
                         Console.BackgroundColor = ConsoleColor.Green;
                         Console.ForegroundColor = ConsoleColor.Black;
-                        Console.WriteLine("### Trovata una corrispodnenza! Url: {0} ###", actualUrl);
+                        Console.WriteLine("### Trovata una corrispondenza! Url: {0} ###", actualUrl);
                         Console.ResetColor();
                         // Inserisci nel database il paste che hai scoeprto e corrisponde ai nsotir criteri di ricerca
                         mongoDB.insertPaste(paste, actualUrl);
                         Console.WriteLine("");
                     }
                 }
+                // Incremento per ricordare quante richieste ho fatto
+                i++;
             }
-            // Incremento per ricordare quante richieste ho fatto
-            i++;
+
         }
 
     }
